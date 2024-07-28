@@ -41,6 +41,7 @@ $ git add .
 
 sergi@DESKTOP-64M1J3C MINGW64 ~/Documents/bootcamp lemoncode/0-GITHUB (master)
 $ git commit -am "Primera push"
+
 [master (root-commit) 28bafb0] Primera push
  5 files changed, 36 insertions(+)
  create mode 100644 1-Comenzando documentacion.png
@@ -52,6 +53,7 @@ $ git commit -am "Primera push"
 # Recibo un error de conexión al intentar subir los archivos al repo
 sergi@DESKTOP-64M1J3C MINGW64 ~/Documents/bootcamp lemoncode/0-GITHUB (master)
 $ git push -u origin master
+
 git@github.com: Permission denied (publickey).
 fatal: Could not read from remote repository.
 
@@ -63,11 +65,13 @@ $ exec ssh-agent bash
 
 sergi@DESKTOP-64M1J3C MINGW64 ~/Documents/bootcamp lemoncode/0-GITHUB (master)
 $ ssh-add ~/.ssh/github
+
 Identity added: /c/Users/sergi/.ssh/github (github)
 
 # Compruebo que puedo realizar una conexión a github
 sergi@DESKTOP-64M1J3C MINGW64 ~/Documents/bootcamp lemoncode/0-GITHUB (master)
 $ ssh git@github.com
+
 PTY allocation request failed on channel 0
 Hi sergiobraiscompo! You've successfully authenticated, but GitHub does not provide shell access.
 Connection to github.com closed.
@@ -75,6 +79,7 @@ Connection to github.com closed.
 
 sergi@DESKTOP-64M1J3C MINGW64 ~/Documents/bootcamp lemoncode/0-GITHUB (master)
 $ git push -u origin master
+
 Enumerating objects: 7, done.
 Counting objects: 100% (7/7), done.
 Delta compression using up to 16 threads
@@ -91,11 +96,42 @@ branch 'master' set up to track 'origin/master'.
 # Creción y cambio a la rama "development" 
 ```
 git checkout -B development
+
 Switched to a new branch 'development'
 M       readme.md
 ```
 
-- Realiza algunos cambios en el archivo que creaste.
+# Cambio el contenido del archivo readme
 ![alt text](6-Cambios%20en%20el%20readme.png)
 - Añade y haz un commit con los cambios en la rama "development".
-- Sube los cambios a Github.
+
+```
+$ git add  .
+
+$ git commit -am "Primer push en la rama 'development'"
+
+[development ad914ea] Primer push en la rama 'development'
+ 3 files changed, 67 insertions(+), 2 deletions(-)
+ create mode 100644 5-Comprobando repo.png
+ create mode 100644 6-Cambios en el readme.png
+```
+
+# Push de los cambios a la nueva rama
+```
+git push --set-upstream origin development
+
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 282.51 KiB | 1.82 MiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'development' on GitHub by visiting:
+remote:      https://github.com/sergiobraiscompo/Laboratorio_Git/pull/new/development
+remote:
+To github.com:sergiobraiscompo/Laboratorio_Git.git
+ * [new branch]      development -> development
+branch 'development' set up to track 'origin/development'.
+```
