@@ -148,10 +148,8 @@ $ git merge development
     create mode 100644 5-Comprobando repo.png
     create mode 100644 6-Cambios en readme.md .png
     create mode 100644 7-Notificacion github.png
+
 $ git add .
-$ git commit -am "Segunda push"
-    [master 1cc402b] Segunda push
-    1 file changed, 33 insertions(+), 10 deletions(-)
 
 $ git commit -am "Fusión con la rama development"
     On branch master
@@ -163,9 +161,10 @@ $ git push
     Counting objects: 100% (5/5), done.
     Delta compression using up to 16 threads
     Compressing objects: 100% (3/3), done.
-    Writing objects: 100% (3/3), 684 bytes | 342.00 KiB/s, done.
+    Writing objects: 100% (3/3), 683 bytes | 683.00 KiB/s, done.
     Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
     remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
     To github.com:sergiobraiscompo/Laboratorio_Git.git
-    28bafb0..1cc402b  master -> master
 ```
+
+![alt text](image.png)
