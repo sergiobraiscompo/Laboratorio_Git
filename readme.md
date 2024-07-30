@@ -113,17 +113,40 @@ $ git push --set-upstream origin development
 ```
 
 ## **Hacer un merge**
-
-- Vuelve a la rama "main".
+# Hago un push de los cambios antes de cambiar de rama
 ```
 $ git checkout master
-Switched to branch 'master'
-Your branch is up to date with 'origin/master'.git mer
+    Switched to branch 'master'
+    Your branch is up to date with 'origin/master'.git mer
+
+$ git merge development
+    Updating 28bafb0..e42f007
+    Fast-forward
+    3-Nombramos el repo.png => 3-Nombrando repo.png | Bin
+    5-Comprobando repo.png                          | Bin 0 -> 68334 bytes
+    6-Cambios en readme.md .png                     | Bin 0 -> 259096 bytes
+    7-Notificacion github.png                       | Bin 0 -> 17930 bytes
+    readme.md                                       | 105 ++++++++++++++++++++++--
+    5 files changed, 99 insertions(+), 6 deletions(-)
+    rename 3-Nombramos el repo.png => 3-Nombrando repo.png (100%)
+    create mode 100644 5-Comprobando repo.png
+    create mode 100644 6-Cambios en readme.md .png
+    create mode 100644 7-Notificacion github.png
 ```
-
-- Haz un merge de la rama "development" a la rama "main".
-- Si no hay conflictos, los cambios realizados en la rama "development" se incorporarán a la rama "main".
-- Hax un push de los cambios al repositorio en GitHub.
-
+# Después realizo el "mergeo"
+```
+$ git merge development
+    Updating 28bafb0..e42f007
+    Fast-forward
+    3-Nombramos el repo.png => 3-Nombrando repo.png | Bin
+    5-Comprobando repo.png                          | Bin 0 -> 68334 bytes
+    6-Cambios en readme.md .png                     | Bin 0 -> 259096 bytes
+    7-Notificacion github.png                       | Bin 0 -> 17930 bytes
+    readme.md                                       | 105 ++++++++++++++++++++++--
+    5 files changed, 99 insertions(+), 6 deletions(-)
+    rename 3-Nombramos el repo.png => 3-Nombrando repo.png (100%)
+    create mode 100644 5-Comprobando repo.png
+    create mode 100644 6-Cambios en readme.md .png
+    create mode 100644 7-Notificacion github.png
+```
 > La rama principal de nuestro repositorio puede ser "main" o "master" según la hayamos nombrado.
->
