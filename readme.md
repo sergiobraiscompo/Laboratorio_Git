@@ -116,9 +116,9 @@ $ git push --set-upstream origin development
 
 - Vuelve a la rama "main".
 ```
-$ git checkout main
-Switched to branch 'main'
-M       readme.md
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.git mer
 ```
 
 - Haz un merge de la rama "development" a la rama "main".
