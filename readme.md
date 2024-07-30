@@ -111,4 +111,19 @@ $ git push --set-upstream origin development
     * [new branch]      development -> development
     branch 'development' set up to track 'origin/development'.
 ```
-![7-Notificacion github](<7-Notificacion github.png>)
+
+## **Hacer un merge**
+
+- Vuelve a la rama "main".
+```
+$ git checkout main
+Switched to branch 'main'
+M       readme.md
+```
+
+- Haz un merge de la rama "development" a la rama "main".
+- Si no hay conflictos, los cambios realizados en la rama "development" se incorporarán a la rama "main".
+- Hax un push de los cambios al repositorio en GitHub.
+
+> La rama principal de nuestro repositorio puede ser "main" o "master" según la hayamos nombrado.
+>
