@@ -1,38 +1,74 @@
-# 1. Creando repo en local
-1.1 -  En primer lugar he creado una carpeta en local llamada "0-GITHUB" y entro en ella.
+### Creando repo en local
+En primer lugar he creado una carpeta en local llamada "0-GITHUB" y entro en ella.
 
 ```
 mkdir 0-GITHUB
 cd 0-GITHUB
 ```
 
-# Inicio el repo de Git
+### Inicio el repo de Git
 ```
 git init
     Initialized empty Git repository in C:/Users/sergi/Documents/bootcamp lemoncode/0-GITHUB/.git/
 ```
 
-# Creo un archivo Markdown llamado readme
+
+### Creo un repo en remoto y copio la url del mismo para enlazarlo en local
+![boton nuevo repo](<images/2-Boton nuevo repo.png>)
+![nombrando repo](<images/3-Nombrando repo.png>)
+![copiando url](<images/4-Copiando enlace repo.png>)
+
+### Creo un par de llaves pública-privada y añado la clave pública a la cuenta de github
+```
+ssh-keygen -t rsa -b 4096 -C "mail@gmail.com"
+    Generating public/private rsa key pair.
+    Enter file in which to save the key (/c/Users/User/.ssh/id_rsa): github
+    Enter passphrase (empty for no passphrase):
+    Enter same passphrase again:
+    Your identification has been saved in github
+    Your public key has been saved in github.pub
+    The key fingerprint is:
+    SHA256:
+    mail@gmail.com
+    The key's randomart image is:
+    +---[RSA 4096]----+
+    |            .E   |
+    |       . .  o.o  |
+    |        o +o.O   |
+    |       . + o+ *  |
+    |       .S o..=.  |
+    |    . . ..o==... |
+    | o   o o  ==.oo .|
+    |..o ....o. +oo o |
+    |  o+. . o+oo+   o|
+    +----[SHA256]-----+
+
+```
+![subiendo clave pública](<images/4.1-Copiando clave a github.png>)
+
+### Añado la key a mi host local y compruebo la conexión
+```
+$ exec ssh-agent bash
+$ ssh-add ~/.ssh/github
+    Identity added: /c/Users/sergi/.ssh/github (github)
+$ ssh git@github.com
+    PTY allocation request failed on channel 0
+    Hi sergiobraiscompo! You've successfully authenticated, but GitHub does not provide shell access.
+    Connection to github.com closed.
+```
+
+### Creo un archivo Markdown llamado readme
 ```
 touch readme\.md
 ```
 
-## Abro visual studio code en la carpeta actual
+### Abro visual studio code en la carpeta actual
 code .
 
-## Aquí comienzo la documentación
-![1-Comenzando documentacion](<1-Comenzando documentacion.png>)
+### Empiezo a documentar los pasos que sigo
+![comenzando documentacion](<images/1-Comenzando documentacion.png>)
 
-# 2. Subiendo el repositorio a github
-- Crea un nuevo repositorio en GitHub.
-![2-Boton nuevo repo](<2-Boton nuevo repo.png>)
-![3-Nombrando repo](<3-Nombrando repo.png>)
-
-
-
-- Copia el URL del repositorio que acabas de crear en GitHub
-![alt text](4-Copiando%20enlace%20repo.png)
-- Conecta tu repositorio local con el repositorio en GitHub.
+### Compruebo que puedo realizar una conexión a github y hago un push de los cambios realizados
 ```
 $ git remote add origin git@github.com:sergiobraiscompo/Laboratorio_Git.git
 $ git add .
@@ -45,20 +81,8 @@ $ git commit -am "Primera push"
     create mode 100644 4-Copiando enlace repo.png
     create mode 100644 readme.md
 ```
-# 
-```
-$ exec ssh-agent bash
-$ ssh-add ~/.ssh/github
-    Identity added: /c/Users/sergi/.ssh/github (github)
-```
 
-# Compruebo que puedo realizar una conexión a github
 ```
-$ ssh git@github.com
-    PTY allocation request failed on channel 0
-    Hi sergiobraiscompo! You've successfully authenticated, but GitHub does not provide shell access.
-    Connection to github.com closed.
-
 $ git push -u origin master
     Enumerating objects: 7, done.
     Counting objects: 100% (7/7), done.
@@ -71,8 +95,8 @@ $ git push -u origin master
     branch 'master' set up to track 'origin/master'.
 ```
 
-# Verifica que la conexión se haya establecido correctamente.
-![5-Comprobando repo](<5-Comprobando repo.png>)
+### Compruebo que la push se ha realizado correctamente
+![5-Comprobando repo](<images/5-Comprobando repo.png>)
 
 # Creción y cambio a la rama "development" 
 ```
@@ -81,10 +105,10 @@ $ git checkout -B development
     M       readme.md
 ```
 
-# Cambio el contenido del archivo readme
-![6-Cambios en readme.md](<6-Cambios en readme.md .png>)
+### Cambio el contenido del archivo readme
+![6-Cambios en readme.md](<images/6-Cambios en readme.md.png>)
 
-# Adición y commit de los cambios realizados en la rama "development".
+### Adición y commit de los cambios realizados en la rama "development".
 ```
 $ git add  .
 $ git commit -am "Primer push en la rama 'development'"
@@ -94,7 +118,7 @@ $ git commit -am "Primer push en la rama 'development'"
     create mode 100644 6-Cambios en el readme.png
 ```
 
-# Push de los cambios a la nueva rama
+### Push de los cambios a la nueva rama
 ```
 $ git push --set-upstream origin development
     Enumerating objects: 7, done.
@@ -112,8 +136,8 @@ $ git push --set-upstream origin development
     branch 'development' set up to track 'origin/development'.
 ```
 
-## **Hacer un merge**
-# Hago un push de los cambios antes de cambiar de rama
+### **Hacer un merge**
+### Hago un push de los cambios antes de cambiar de rama
 ```
 $ git checkout master
     Switched to branch 'master'
@@ -133,7 +157,7 @@ $ git merge development
     create mode 100644 6-Cambios en readme.md .png
     create mode 100644 7-Notificacion github.png
 ```
-# Después realizo el "mergeo" y subo los cambios a github
+### Después realizo el "mergeo" y subo los cambios a github
 ```
 $ git merge development
     Updating 28bafb0..e42f007
@@ -167,4 +191,5 @@ $ git push
     To github.com:sergiobraiscompo/Laboratorio_Git.git
 ```
 
-![alt text](image.png)
+![alt text](<images/7-Notificacion github.png>)
+![alt text](<images/8-mergeado subido a github.png>)
