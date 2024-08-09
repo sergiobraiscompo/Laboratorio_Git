@@ -20,6 +20,7 @@ git init
 
 ### Creo un par de llaves pública-privada y añado la clave pública a la cuenta de github
 ```
+cd ~/.ssh/
 ssh-keygen -t rsa -b 4096 -C "mail@gmail.com"
     Generating public/private rsa key pair.
     Enter file in which to save the key (/c/Users/User/.ssh/id_rsa): github
@@ -80,9 +81,6 @@ $ git commit -am "Primera push"
     create mode 100644 3-Nombramos el repo.png
     create mode 100644 4-Copiando enlace repo.png
     create mode 100644 readme.md
-```
-
-```
 $ git push -u origin master
     Enumerating objects: 7, done.
     Counting objects: 100% (7/7), done.
@@ -136,13 +134,11 @@ $ git push --set-upstream origin development
     branch 'development' set up to track 'origin/development'.
 ```
 
-### **Hacer un merge**
-### Hago un push de los cambios antes de cambiar de rama
+### Después realizo el "mergeo" y subo los cambios a github
 ```
 $ git checkout master
     Switched to branch 'master'
-    Your branch is up to date with 'origin/master'.git mer
-
+    Your branch is up to date with 'origin/master'.
 $ git merge development
     Updating 28bafb0..e42f007
     Fast-forward
@@ -156,30 +152,11 @@ $ git merge development
     create mode 100644 5-Comprobando repo.png
     create mode 100644 6-Cambios en readme.md .png
     create mode 100644 7-Notificacion github.png
-```
-### Después realizo el "mergeo" y subo los cambios a github
-```
-$ git merge development
-    Updating 28bafb0..e42f007
-    Fast-forward
-    3-Nombramos el repo.png => 3-Nombrando repo.png | Bin
-    5-Comprobando repo.png                          | Bin 0 -> 68334 bytes
-    6-Cambios en readme.md .png                     | Bin 0 -> 259096 bytes
-    7-Notificacion github.png                       | Bin 0 -> 17930 bytes
-    readme.md                                       | 105 ++++++++++++++++++++++--
-    5 files changed, 99 insertions(+), 6 deletions(-)
-    rename 3-Nombramos el repo.png => 3-Nombrando repo.png (100%)
-    create mode 100644 5-Comprobando repo.png
-    create mode 100644 6-Cambios en readme.md .png
-    create mode 100644 7-Notificacion github.png
-
 $ git add .
-
 $ git commit -am "Fusión con la rama development"
     On branch master
     Your branch is ahead of 'origin/master' by 6 commits.
     (use "git push" to publish your local commits)
-
 $ git push
     Enumerating objects: 5, done.
     Counting objects: 100% (5/5), done.
